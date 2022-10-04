@@ -3,7 +3,8 @@
 // Kegunaan : Untuk menghapus elemen terakgir dari array
 // Contoh Penggunaan :
 var arr = ["C", "PHP", "Python", "Javascript"];
-arr.pop();
+arr.pop()
+console.log(arr)
 // Expected Output : C, PHP, Python
 
 // 2.
@@ -12,6 +13,7 @@ arr.pop();
 // Contoh Penggunaan :
 var arr = ["C", "PHP", "Python", "Javascript"];
 arr.push("Java");
+console.log(arr)
 // Expected Output : C, PHP, Python, Javascript, Java
 
 // 3.
@@ -19,7 +21,7 @@ arr.push("Java");
 // Kegunaan : Untuk mengkonversi array menjadi string
 // Contoh Penggunaan :
 var arr = ["C", "PHP", "Python", "Javascript"];
-arr.toString();
+console.log(arr.toString())
 // Expected Output : C, PHP, Python, Javascript
 
 // 4.
@@ -29,11 +31,11 @@ arr.toString();
 // Apabila tidak terdapat paramater, maka akan dipisahkan dengan koma
 // Contoh Penggunaan (tidak terdapat parameter):
 var arr = ["C", "PHP", "Python", "Javascript"];
-arr.join();
+console.log(arr.join())
 // Expected Output : C, PHP, Python, Javascript
 // Contoh Penggunaan (terdapat parameter):
 var arr = ["C", "PHP", "Python", "Javascript"];
-arr.join("-");
+console.log(arr.join("-"))
 // Expected Output : C - PHP - Python - Javascript
 
 // 5.
@@ -44,23 +46,42 @@ arr.join("-");
 // index => index param yang menentukan dimana item baru harus dimasukkan
 // howMany => integer yang menunjukkan jumlah elemen arrray lama yang akan dihapus
 // jika howMany disetel ke 0, tidak ada item yang akan dihapus dalam daftar array
+
 // Contoh Penggunaan splice() => menambahkan:
 var arr = ["C", "PHP", "Python", "Javascript"];
-arr.splice(2, 0, "Laravel", "React");
+arr.splice(2, 0, "Laravel", "React"); // menambahkan data di index 2 dengan data "Laravel", "React"
+console.log(arr)
 // Expected Output : C, PHP, Laravel, React, Python, Javascript
+
 // Contoh Penggunaan splice() => menghapus:
 var arr = ["C", "PHP", "Python", "Javascript"];
-arr.splice(0, 1, "Laravel", "React");
+arr.splice(0, 1, "Laravel", "React"); // menghapus data di index 0 
+console.log(arr)
 // Expected Output : PHP, Python, Javascript
+
+// Contoh Penggunaan splice() => mereplace:
+var arr = ["C", "PHP", "Python", "Javascript"];
+arr.splice(0, 1, "C++"); // menghapus 1 data di index 0 dengan data "C++"
+console.log(arr)
+// Expected Output : C++, PHP, Python, Javascript
 
 
 // 6. 
 // Method : Array sort()
 // Kegunaan : Untuk mengurutkan array pada javascript baik secara alfabet maupun numerik
-// Contoh Penggunaan :
-var arr = ["PHP", "Javascript", "C", "Pyhton"];
-arr.sort();
-// Expected Output : C, Javascript, PHP, Python
+// Contoh Penggunaan : Kecil => Besar
+const arr = [4, 2, 9, 10, 1];
+console.log(arr.sort(function(a,b) { // dianggap a => kecil, b => besar
+    return a-b
+}))
+// Expected Output : 1, 2, 4, 9, 10
+
+// Contoh Penggunaan : Besar => Kecil
+const arr = [4, 2, 9, 10, 1];
+console.log(arr.sort(function(a,b) { // dianggap a => kecil, b => besar
+    return b-a
+}))
+// Expected Output : 10, 9, 4, 2, 1
 
 // 7. 
 // Method : Array shift()
@@ -68,6 +89,7 @@ arr.sort();
 // Contoh Penggunaan :
 var arr = ["PHP", "Javascript", "C", "Pyhton"];
 arr.shift();
+console.log(arr)
 // Expected Output : Javascript, C, Pyhton
 
 // 8. 
@@ -76,6 +98,7 @@ arr.shift();
 // Contoh Penggunaan :
 var arr = ["PHP", "Javascript", "C", "Pyhton"];
 arr.unshift("Laravel");
+console.log(arr)
 // Expected Output : Laravel, PHP, Javascript, C, Pyhton
 
 // 9.
@@ -84,6 +107,7 @@ arr.unshift("Laravel");
 // Contoh Penggunaan :
 var arr = ["PHP", "Javascript", "C", "Pyhton"];
 arr.reverse();
+console.log(arr)
 // Expected Output : Python, C, Javascript, PHP
 
 // 10. 
@@ -92,7 +116,7 @@ arr.reverse();
 // Contoh Penggunaan :
 var arr = ["PHP", "Javascript", "C", "Pyhton"];
 var newarr = ["React", "Laravel"]
-var join = arr.concat(newarr);
+console.log(arr.concat(newarr))
 // Expected Output : PHP, Javascript, C, Python, React, Laravel
 
 // 11.
@@ -100,48 +124,41 @@ var join = arr.concat(newarr);
 // Kegunaan : Untuk memilih elemen dalam array dan membuat yang baru. Hal ini dapat mengambil satu atau dua argumen.
 // Contoh Penggunaan :
 var arr = ["PHP", "Javascript", "C", "Pyhton"];
-var arr = lang.slice(1,3)
-// Expected Output : Javascript, Python
+console.log(arr.slice(0,3))
+// Expected Output : Python
 
 // 12. 
 // Method : Array filter()
 // Kegunaan : Untuk memfilter array, sesuai dengan kondisi
 // Contoh Penggunaan :
-<p> function isCheck(value) {
-    return value < 15; 
-}
-var filter = [8, 17, 5, 14].filter(isCheck);
-<p
-// Expected Output : 8,5,14
+let a = [8, 17, 5, 14]
+let filterArray = a.filter(item => item % 2 == 0)
+console.log(filterArray)
+// Expected Output : 8, 14
 
 // 13.
-// Method : Array find()
-// Kegunaan : Untuk menemukan elemen pertama dari sebuah array
+// Method : Array replace()
+// Kegunaan : Untuk mengubah isi string secara fleksibel 
 // Contoh Penggunaan :
-function isCheck(value) {
-    return value >= 9;
-}
-var find = [8, 2, 10, 3].find(isCheck);
-// Expected Output : 10
+let b = "Kampus UIN Jakarta"
+let c = b.replace("Jakarta", "Bandung")
+// Expected Output : Kampus UIN Bandung
 
 // 14.  
-// Method : Array forEach()
-// Kegunaan : Untuk memungkinkan pemanggilan fungsi pada setiap elemen array dengan cara yang mudah
+// Method : Array toLowerCase()
+// Kegunaan : Untuk membuat semua huruf dalam string menjadi huruf kecil
 // Contoh Penggunaan :
-var num = [2,6,8,3];
-num.forEach(function(item) {
-    document.writeln(item);
-});
-// Expected Output : 2 6 8 3
+var string = "ZULFA dwi Audina"
+console.log(string.toLowerCase())
+// Expected Output : zulfa dwi audina
 
 // 15.
-// Method : Array map()
-// Kegunaan : Untuk membuat array dengan memanggil fungsi tertentu pada setiap elemen dalam array asli
+// Method : Array toUpperCase()
+// Kegunaan : Untuk membuat semua huruf dalam string huruf kapital
 // Contoh Penggunaan :
-var numbers = [9, 16, 25, 36];
-var x = numbers.map(Math.sqrt);
-document.write(x);
-// Expected Output : 3,4,5,6
+var string2 = "zulfa dwi Audina"
+console.log(string2.toUpperCase())
+// Expected Output : ZULFA DWI AUDINA
 
 // 16.
 // Method : Array length()
@@ -149,7 +166,7 @@ document.write(x);
 // Contoh Penggunaan :
 const friends = ["Audi", "Ghilba", "Shinta"];
 friends[friends.length] = "Nita";
-// Expected Output : Audi, Ghilbe, Shinta, Nita
+// Expected Output : Audi, Ghilba, Shinta, Nita
 
 // 17. 
 // Method : Array some()
